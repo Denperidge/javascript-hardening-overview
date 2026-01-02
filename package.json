@@ -17,7 +17,10 @@
     }
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-pug": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "npq": "^3.16.1"
+  }
 }
