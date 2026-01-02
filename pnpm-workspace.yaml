@@ -1,0 +1,6 @@
+minimumReleaseAge: 4320  # in mins, 3 days
+blockExoticSubdeps: true
+strictDepBuilds: true
+trustPolicy: no-downgrade
+#nodeLinker: pnp
+#symlink: false

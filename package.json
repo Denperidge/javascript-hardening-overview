@@ -1,0 +1,23 @@
+{
+  "name": "javascript-hardening-overview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "deno npm:@11ty/eleventy@3"
+  },
+  "keywords": [],
+  "packageManager": "pnpm@10.26.1",
+  "devEngines": {
+    "runtime": {
+      "name": "deno",
+      "version": "^2.6.0",
+      "onFail": "download"
+    }
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "devDependencies": {}
+}
