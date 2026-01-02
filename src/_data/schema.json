@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "A collection of JS securty config measures",
+    "type":"object",
+    "$defs": {
+        "featureImplementation": {
+            "oneOf": [
+                {"type": "object"},
+                {"enum": [false, null]}
+            ],
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "warning": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "note": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "defaultValue": {
+                    "oneOf": [
+                        {"type": "string"},
+                        {"type": "number"},
+                        {"type": "boolean"}
+                    ]
+                }
+            }
+        }
+    },
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "features": {
+            "type":"array",
+            "items": {
+                "type": "object",
+                "required": ["title"],
+                "properties": {
+                    "title": {"type": "string"},
+                    "npm": {
+                        "$ref": "#/$defs/featureImplementation"
+                    },
+                    "yarn-classic": {
+                        "$ref": "#/$defs/featureImplementation"
+                    },
+                    "yarn-berry": {
+                        "$ref": "#/$defs/featureImplementation"
+                    },
+                    "pnpm": {
+                        "$ref": "#/$defs/featureImplementation"
+                    },
+                    "bun-install": {
+                        "$ref": "#/$defs/featureImplementation"
+                    }
+                }
+            }
+        }
+    }
+}
