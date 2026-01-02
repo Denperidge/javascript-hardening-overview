@@ -1,11 +1,8 @@
 { pkgs ? import <nixpkgs> {} }:
-  pkgs.mkShell {
-    nativeBuildInputs = with pkgs.buildPackages; [
-      pnpm
-      steam-run-free
-    ];
-
-    shellHook = ''
-      alias deno="steam-run ./node_modules/deno/deno"
-    '';
-}
+  
+(pkgs.buildFHSEnv {
+  name = "js-hardening-overview";
+  multiPkgs = pkgs: (with pkgs; [
+    pnpm
+  ]);
+}).env

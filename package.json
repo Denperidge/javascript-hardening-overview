@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "deno npm:@11ty/eleventy@3"
+    "start": "deno -P npm:@11ty/eleventy@3"
   },
   "keywords": [],
   "packageManager": "pnpm@10.26.1",
