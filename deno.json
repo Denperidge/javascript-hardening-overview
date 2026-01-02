@@ -3,6 +3,7 @@
     "permissions": {
         "default": {
             "env": true,
+            "sys": ["homedir"],
             "read": [
                 "./",
                 "dist/"
