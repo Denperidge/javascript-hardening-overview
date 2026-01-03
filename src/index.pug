@@ -14,4 +14,10 @@ html(lang="en")
                 for feature in features
                     td=feature.title
                     for toolId in toolIds
-                        td=feature.implementations[toolId].prettyPrint
+                        - const impl = feature.implementations[toolId]
+                        unless impl.url
+                            td=impl.prettyPrint
+                        else
+                            td
+                                a(href=impl.url)
+                                    span=impl.prettyPrint

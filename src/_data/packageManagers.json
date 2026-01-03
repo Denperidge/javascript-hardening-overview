@@ -29,18 +29,19 @@
             "implementations": {
                 "npm": {
                     "warning": true,
-                    "note": "Only Node.JS and Deno"
+                    "note": "Node.JS and Deno only"
                 },
                 "yarn-classic": {
-                    "note": "Node.JS Only",
+                    "note": "Node.JS only",
                     "warning": true
                 },
                 "yarn-berry": {
-                    "note": "Node.JS Only",
+                    "note": "Node.JS only",
                     "warning": true
                 },
                 "pnpm": {
-                    "config": true
+                    "config": true,
+                    "url": "https://pnpm.io/blog/releases/10.14#added-support-for-javascript-runtime-installation"
                 }
             }
         }
