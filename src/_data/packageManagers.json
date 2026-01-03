@@ -1,0 +1,36 @@
+{
+    "$schema": "./schema.json",
+    "title": "packageManager",
+    "tools": [
+        {
+            "id": "npm",
+            "name": "npm",
+            "version": "11.7.X"
+        },
+        {
+            "id": "yarn-classic",
+            "name": "Yarn Classic",
+            "version": "1.22.X"
+        },
+        {
+            "id": "yarn-berry",
+            "name": "Yarn Berry",
+            "version": "4.12.X"
+        }, 
+        {
+            "id": "pnpm",
+            "name": "pnpm",
+            "version": "10.23.X"
+        }
+    ],
+    "features": [
+        {
+            "title": "Supports big 3 🐇 runtimes (Node.JS, deno, bun)",
+            "npm": {
+                "warning": true,
+                "note": "Only Node.JS and Deno"
+            }
+        }
+    ]
+    
+}

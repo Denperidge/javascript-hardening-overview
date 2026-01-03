@@ -36,6 +36,27 @@
         "title": {
             "type": "string"
         },
+        "tools": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "version"],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "features": {
             "type":"array",
             "items": {
