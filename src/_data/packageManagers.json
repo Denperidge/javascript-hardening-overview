@@ -30,6 +30,17 @@
                 "npm": {
                     "warning": true,
                     "note": "Only Node.JS and Deno"
+                },
+                "yarn-classic": {
+                    "note": "Node.JS Only",
+                    "warning": true
+                },
+                "yarn-berry": {
+                    "note": "Node.JS Only",
+                    "warning": true
+                },
+                "pnpm": {
+                    "config": true
                 }
             }
         }

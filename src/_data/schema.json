@@ -16,6 +16,9 @@
                     "type": "boolean",
                     "default": false
                 },
+                "config": {
+                    "type": "boolean"
+                },
                 "note": {
                     "type": "string"
                 },

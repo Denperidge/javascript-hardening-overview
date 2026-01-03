@@ -12,19 +12,24 @@ export default {
     features: (data) => {
         const toolIds = getToolIds(data)
         return data.packageManagers.features.map(feature => {
-            console.log(feature)
             for (let i = 0; i < toolIds.length; i++) {
                 const toolId = toolIds[i];
-                console.log(toolId)
                 const implementation = feature.implementations[toolId];
                 
-                let prettyPrint = "";                
                 if (implementation == undefined) {
                     feature.implementations[toolId] = {
                         prettyPrint: "❌ Not implemented"
                     }
                 } else if (implementation.warning) {
-                    feature.implementations[toolId].prettyPrint += "⚠️ " + implementation.note;
+                    feature.implementations[toolId].prettyPrint = "⚠️ " + implementation.note;
+                } else if (implementation.config) {
+                    if (!implementation.note) { implementation.note = "If configured"};
+                    feature.implementations[toolId].prettyPrint = "🛠️ " + implementation.note;
+                } else if (implementation.note == "N/A") {
+                    feature.implementations[toolId].prettyPrint = implementation.note;
+                } else {
+                    if (!implementation.note) { implementation.note = "By default"};
+                    feature.implementations[toolId].prettyPrint = "✅ "
                 }
             }
             return feature;
