@@ -7,3 +7,9 @@ html(lang="en")
     body
         main
             table
+                tr
+                    th Feature
+                    for packageManager in tools
+                        th=`${packageManager.name} (${packageManager.version})`
+                for feature in features
+                    td=feature.title
