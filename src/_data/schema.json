@@ -64,20 +64,25 @@
                 "required": ["title"],
                 "properties": {
                     "title": {"type": "string"},
-                    "npm": {
-                        "$ref": "#/$defs/featureImplementation"
-                    },
-                    "yarn-classic": {
-                        "$ref": "#/$defs/featureImplementation"
-                    },
-                    "yarn-berry": {
-                        "$ref": "#/$defs/featureImplementation"
-                    },
-                    "pnpm": {
-                        "$ref": "#/$defs/featureImplementation"
-                    },
-                    "bun-install": {
-                        "$ref": "#/$defs/featureImplementation"
+                    "implementations": {
+                        "type": "object",
+                        "properties": {
+                            "npm": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "yarn-classic": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "yarn-berry": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "pnpm": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "bun-install": {
+                                "$ref": "#/$defs/featureImplementation"
+                            }
+                        }
                     }
                 }
             }

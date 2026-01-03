@@ -26,9 +26,11 @@
     "features": [
         {
             "title": "Supports big 3 🐇 runtimes (Node.JS, deno, bun)",
-            "npm": {
-                "warning": true,
-                "note": "Only Node.JS and Deno"
+            "implementations": {
+                "npm": {
+                    "warning": true,
+                    "note": "Only Node.JS and Deno"
+                }
             }
         }
     ]

@@ -13,3 +13,5 @@ html(lang="en")
                         th=`${packageManager.name} (${packageManager.version})`
                 for feature in features
                     td=feature.title
+                    for toolId in toolIds
+                        td=feature.implementations[toolId].prettyPrint
