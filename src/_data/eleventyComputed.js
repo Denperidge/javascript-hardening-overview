@@ -34,6 +34,9 @@ export default {
                     } else if (implementation.config) {
                         if (!hasNote) { implementation.note = "If configured"};
                         feature.implementations[toolId].prettyPrint = "🛠️ " + implementation.note;
+                    } else if (implementation.need_more_info) {
+                        if (!hasNote) { implementation.note = "Need more info"};
+                        feature.implementations[toolId].prettyPrint = "❔ " + implementation.note;
                     } else if (implementation.note == "N/A") {
                         feature.implementations[toolId].prettyPrint = implementation.note;
                     } else {

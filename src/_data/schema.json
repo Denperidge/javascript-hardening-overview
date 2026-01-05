@@ -31,6 +31,9 @@
                 "url": {
                     "type": "string"
                 },
+                "need_more_info": {
+                    "type": "boolean"
+                },
                 "defaultValue": {
                     "oneOf": [
                         {"type": "string"},
