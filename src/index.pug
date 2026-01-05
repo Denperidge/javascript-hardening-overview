@@ -12,12 +12,13 @@ html(lang="en")
                     for packageManager in tools
                         th=`${packageManager.name} (${packageManager.version})`
                 for feature in features
-                    td=feature.title
-                    for toolId in toolIds
-                        - const impl = feature.implementations[toolId]
-                        unless impl.url
-                            td=impl.prettyPrint
-                        else
-                            td
-                                a(href=impl.url)
-                                    span=impl.prettyPrint
+                    tr
+                        td=feature.title
+                        for toolId in toolIds
+                            - const impl = feature.implementations[toolId]
+                            unless impl.url
+                                td=impl.prettyPrint
+                            else
+                                td
+                                    a(href=impl.url)
+                                        span=impl.prettyPrint

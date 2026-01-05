@@ -53,6 +53,15 @@
                     "note": "Node.JS and Bun only"
                 }
             }
+        },
+        {
+            "title": "Minimum release age",
+            "implementations": {
+                "yarn-berry": {
+                    "defaultValue": "3d",
+                    "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate"
+                }
+            }
         }
     ]
     

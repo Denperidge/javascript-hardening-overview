@@ -6,7 +6,7 @@
         "featureImplementation": {
             "oneOf": [
                 {"type": "object"},
-                {"enum": [false, null]}
+                {"type": "null"}
             ],
             "properties": {
                 "description": {
@@ -64,7 +64,7 @@
             "type":"array",
             "items": {
                 "type": "object",
-                "required": ["title"],
+                "required": ["title", "implementations"],
                 "properties": {
                     "title": {"type": "string"},
                     "implementations": {
