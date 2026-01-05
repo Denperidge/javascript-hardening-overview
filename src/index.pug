@@ -22,3 +22,5 @@ html(lang="en")
                                 td
                                     a(href=impl.url)
                                         span=impl.prettyPrint
+                                    if impl.override_url
+                                        span , has #[a(href=impl.override_url) override]

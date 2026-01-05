@@ -63,7 +63,12 @@
                 },
                 "pnpm": {
                     "config": true,
-                    "note": "[If configured](https://pnpm.io/settings#minimumreleaseage), has [override](https://pnpm.io/settings#minimumreleaseageexclude)"
+                    "url": "https://pnpm.io/settings#minimumreleaseage",
+                    "override_url": "https://pnpm.io/settings#minimumreleaseageexclude"
+                },
+                "bun-install": {
+                    "config": true,
+                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age"
                 }
             }
         }
