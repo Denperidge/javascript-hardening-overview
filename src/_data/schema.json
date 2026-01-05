@@ -19,7 +19,10 @@
                 "config": {
                     "type": "boolean"
                 },
-                "override_url": {
+                "override": {
+                    "type": "boolean"
+                },
+                "override_url" : {
                     "type": "string"
                 },
                 "note": {

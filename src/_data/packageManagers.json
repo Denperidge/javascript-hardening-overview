@@ -68,7 +68,8 @@
                 },
                 "bun-install": {
                     "config": true,
-                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age"
+                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age",
+                    "override": true
                 }
             }
         }

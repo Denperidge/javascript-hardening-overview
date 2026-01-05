@@ -20,6 +20,8 @@ html(lang="en")
                                 td!=impl.prettyPrint
                             else
                                 td
+                                    if impl.override
+                                        - impl.prettyPrint += ", has override"
                                     a(href=impl.url)
                                         span=impl.prettyPrint
                                     if impl.override_url
