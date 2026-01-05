@@ -14,6 +14,9 @@ importers:
       '@11ty/eleventy-plugin-pug':
         specifier: ^1.0.0
         version: 1.0.0
+      markdown-it:
+        specifier: ^14.1.0
+        version: 14.1.0
     devDependencies:
       deno:
         specifier: runtime:^2.6.0

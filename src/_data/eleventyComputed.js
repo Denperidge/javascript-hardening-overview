@@ -1,3 +1,6 @@
+import markdownIt from "markdown-it";
+const md = markdownIt();
+
 function getToolIds(data) {
     return data.packageManagers.tools.map(tool => tool.id);
 }
@@ -22,6 +25,9 @@ export default {
                     }
                 } else {
                     const hasNote = Object.keys(implementation).includes("note");
+                    if (hasNote) {
+                        implementation.note = md.renderInline(implementation.note)
+                    }
 
                     if (implementation.warning) {
                         feature.implementations[toolId].prettyPrint = "⚠️ " + implementation.note;
@@ -33,11 +39,12 @@ export default {
                     } else {
                         if (!hasNote) {
                             if (implementation.defaultValue) {
-                                feature.implementations[toolId].prettyPrint = `✅ Yes, ${implementation.defaultValue} default`;
+                                implementation.note = `Yes, ${implementation.defaultValue} default`;
                             } else {
-                                feature.implementations[toolId].prettyPrint = "✅ By default";
+                                implementation.note = "By default";
                             }
                         };
+                        feature.implementations[toolId].prettyPrint = "✅ " + implementation.note;;
                     }
                 }
             }

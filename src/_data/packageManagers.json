@@ -60,6 +60,10 @@
                 "yarn-berry": {
                     "defaultValue": "3d",
                     "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate"
+                },
+                "pnpm": {
+                    "config": true,
+                    "note": "[If configured](https://pnpm.io/settings#minimumreleaseage), has [override](https://pnpm.io/settings#minimumreleaseageexclude)"
                 }
             }
         }

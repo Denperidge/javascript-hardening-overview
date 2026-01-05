@@ -17,7 +17,7 @@ html(lang="en")
                         for toolId in toolIds
                             - const impl = feature.implementations[toolId]
                             unless impl.url
-                                td=impl.prettyPrint
+                                td!=impl.prettyPrint
                             else
                                 td
                                     a(href=impl.url)
