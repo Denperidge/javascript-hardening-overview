@@ -68,8 +68,100 @@
                 },
                 "bun-install": {
                     "config": true,
-                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age",
+                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age"
+                }
+            }
+        },
+        {
+            "title": "Block install scripts",
+            "implementations": {
+                "npm": {
+                    "config": true,
+                    "url": "https://docs.npmjs.com/cli/v9/using-npm/config#ignore-scripts"
+                },
+                "yarn-berry": {
+                    "need_more_info": true,
+                    "note": "[Documentation](https://yarnpkg.com/configuration/yarnrc#enableScripts) [unclear](https://github.com/yarnpkg/yarn/issues/7338)"
+                },
+                "pnpm": {
+                    "note": "[Default](https://pnpm.io/settings#dangerouslyallowallbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) and [strict mode (exit instead of warn)](https://pnpm.io/settings#strictdepbuilds)"
+                },
+                "bun-install": {
+                    "warning": true,
+                    "note": "Default, only blocks dependencies, has allowlist override",
+                    "url": "https://bun.com/docs/pm/cli/install#lifecycle-scripts"
+                }
+            }
+        },
+        {
+            "title": "Block git repo/tarball sources for indirect dependencies",
+            "implementations": {
+                "pnpm": {
+                    "config": true,
+                    "url": "https://pnpm.io/settings#blockexoticsubdeps"
+                }
+            }
+        },
+        {
+            "title": "Don't install newer versions if security measures decreased",
+            "implementations": {
+                "pnpm": {
+                    "config": true,
+                    "url": "https://pnpm.io/settings#trustpolicy",
+                    "override_url": "https://pnpm.io/settings#trustpolicyexclude"
+                }
+            }
+        },
+        {
+            "title": "Limit plug & play to listed dependencies",
+            "implementations": {
+                "npm": {"note": "N/A"},
+                "yarn-classic": {
+                    "warning": true,
+                    "note": "Default, with exception of top-level (package.json) dependencies"
+                },
+                "yarn-berry": {
+                    "url": "https://yarnpkg.com/configuration/yarnrc#pnpMode"
+                },
+                "pnpm": {
+                    "config": true,
+                    "url": "https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm#a-strict-traditional-modules-directory",
                     "override": true
+                },
+                "bun-install": {
+                    "config": true,
+                    "url": "https://bun.com/docs/pm/cli/install#default-strategy"
+                }
+            }
+        },
+        {
+            "title": "Verify integrity of global store",
+            "implementations": {
+                "npm": {"need_more_info": true},
+                "yarn-classic": {"need_more_info": true},
+                "yarn-berry": {
+                    "url": "https://yarnpkg.com/configuration/yarnrc#checksumBehavior",
+                    "override": true
+                },
+                "pnpm": {
+                    "url": "https://pnpm.io/settings#verifystoreintegrity",
+                    "override": true
+                },
+                "bun-install": {"need_more_info": true}
+            }
+        },
+        {
+            "title": "Anti-lockfile poisoning",
+            "implementations": {
+                "yarn-berry": {
+                    "config": true,
+                    "note": "[Default for public PR](https://yarnpkg.com/configuration/yarnrc#enableHardenedMode), can be set to [true to do so everywhere](https://github.com/yarnpkg/berry/discussions/7026#discussioncomment-15375799)"
+                },
+                "pnpm": {
+                    "note": "Not needed"
+                },
+                "bun-install": {
+                    "note": "Not needed"
                 }
             }
         }
