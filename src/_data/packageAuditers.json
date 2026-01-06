@@ -68,6 +68,51 @@
                     "note": "Cross-platform version of GitHub's dependabot"
                 }
             }
+        },
+        {
+            "title": "Supports the big 4 (npm/yarn classic+berry/pnpm)",
+            "implementations": {
+                "npm-audit": {
+                    "warning": true,
+                    "note": "npm only"
+                },
+                "yarn-audit": {
+                    "warning": true,
+                    "note": "yarn classic (yarn audit) or yarn berry (yarn npm audit) only"
+                },
+                "pnpm-audit": {
+                    "warning": true,
+                    "note": "pnpm only"
+                },
+                "lockfile-lint": {
+                    "warning": true,
+                    "note": "npm & yarn only. Pnpm is safe by default"
+                },
+                "socket-scan": {
+                    "url": "https://socket.dev/integrations#package-managers"
+                },
+                "artemis": {
+                    "note": "N/A"
+                },
+                "mend-renovate-cli": {
+                    "url": "https://docs.renovatebot.com/javascript/"
+                }
+            }
+        },
+        {
+            "title": "Supports Bun Install",
+            "implementations": {
+                "lockfile-lint": {
+                    "warning": true,
+                    "note": "Bun is safe by default"
+                },
+                "artemis": {
+                    "note": "N/A"
+                },
+                "mend-renovate-cli": {
+                    "url": "https://docs.renovatebot.com/javascript/"
+                }
+            }
         }
     ]
 }
