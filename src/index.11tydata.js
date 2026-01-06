@@ -53,7 +53,9 @@ function processSchemaData(data, key="packageManagers") {
 }
 
 export default {
-    dataSets: (data) => {
-        return keys.map(key => processSchemaData(data, key));
+    eleventyComputed: {
+        dataSets: (data) => {
+            return keys.map(key => processSchemaData(data, key));
+        }
     }
 }
