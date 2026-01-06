@@ -24,7 +24,30 @@
             "implementations": {
                 "node": {
                     "warning": true,
-                    "note": "If configured, limited to some built-in node api's"
+                    "note": "If configured, limited to some built-in node api's",
+                    "url": "https://nodejs.org/api/permissions.html"
+                },
+                "deno": {
+                    "url": "https://docs.deno.com/runtime/fundamentals/security/",
+                    "override": true
+                }
+            }
+        },
+        {
+            "title": "Freezing intrinsics/built-ins",
+            "implementations": {
+                "node": {
+                    "config": true,
+                    "url": "https://nodejs.org/en/learn/getting-started/security-best-practices"
+                }
+            }
+        },
+        {
+            "title": "Runtime-level package auditor",
+            "implementations": {
+                "bun-runtime": {
+                    "config": true,
+                    "url": "https://bun.com/docs/runtime/bunfig#install-security-scanner"
                 }
             }
         }
