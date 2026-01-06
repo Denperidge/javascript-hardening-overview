@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        h1 JavaScript hardening overview
+        nav
+            h2 Navigation
+            mixin nav(href, title, text)  
+                li
+                    a(href=href)=title
+                    span=` - ${text}` 
+            ul
+                +nav("/explanation", 
+                    "Explanation",
+                    "Info about this project, the methodology used or FAQ?")
+                +nav("/", "Reference", "Overview of the collected data")
+                +nav("https://github.com/Denperidge/javascript-hardening-overview/", "GitHub", "Source code & data repository")
+                +nav("/sources", "Sources", "Links that aren't included elsewhere")
+        
+        main
+            | !{content}

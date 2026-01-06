@@ -1,5 +1,6 @@
-
-# JavaScript hardening overview
+---
+layout: layout.pug
+---
 ## Explanation
 ### ☕️📝 Intro
 There's a bunch of security stuff going wrong with JavaScript/npm. There's a bunch of 📦 package managers and even full 🐇 runtimes and they all do different stuff. Lets see which one has the most security potential, and how to configure tools to lessen security risks.
