@@ -1,20 +1,16 @@
 import markdownIt from "markdown-it";
 const md = markdownIt();
 
-function getToolIds(data) {
-    return data.packageManagers.tools.map(tool => tool.id);
-}
+const keys = ["packageManagers", "runtimes"]
 
-export default {
-    tools: (data) => {
-        return data.packageManagers.tools;
-    },
-    toolIds: (data) => {
-        return getToolIds(data);
-    },
-    features: (data) => {
-        const toolIds = getToolIds(data)
-        return data.packageManagers.features.map(feature => {
+function processSchemaData(data, key="packageManagers") {
+    const toolIds = data[key].tools.map(tool => tool.id);
+
+    return {
+        title: data[key].title,
+        tools: data[key].tools,
+        toolIds: toolIds,
+        features: data[key].features.map(feature => {
             for (let i = 0; i < toolIds.length; i++) {
                 const toolId = toolIds[i];
                 const implementation = feature.implementations[toolId];
@@ -52,6 +48,12 @@ export default {
                 }
             }
             return feature;
-        });
+        })
+    }
+}
+
+export default {
+    dataSets: (data) => {
+        return keys.map(key => processSchemaData(data, key));
     }
 }

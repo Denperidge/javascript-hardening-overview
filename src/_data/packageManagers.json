@@ -1,6 +1,6 @@
 {
     "$schema": "./schema.json",
-    "title": "packageManager",
+    "title": "Package Manager overview",
     "tools": [
         {
             "id": "npm",

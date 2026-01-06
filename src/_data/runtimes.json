@@ -1,0 +1,32 @@
+{
+    "$schema": "./schema.json",
+    "title": "Runtime overview",
+    "tools": [
+        {
+            "id": "node",
+            "name": "Node.JS",
+            "version": "24.12.X"
+        },
+        {
+            "id": "bun-runtime",
+            "name": "Bun runtime",
+            "version": "1.3.X"
+        },
+        {
+            "id": "deno",
+            "name": "Deno",
+            "version": "2.6.X"
+        }
+    ],
+    "features": [
+        {
+            "title": "Limit resource access",
+            "implementations": {
+                "node": {
+                    "warning": true,
+                    "note": "If configured, limited to some built-in node api's"
+                }
+            }
+        }
+    ]
+}

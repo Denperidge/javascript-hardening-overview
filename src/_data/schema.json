@@ -93,6 +93,15 @@
                             },
                             "bun-install": {
                                 "$ref": "#/$defs/featureImplementation"
+                            },
+                            "node": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "bun-runtime": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "deno": {
+                                "$ref": "#/$defs/featureImplementation"
                             }
                         }
                     }
