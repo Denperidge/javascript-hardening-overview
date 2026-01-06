@@ -34,6 +34,17 @@
                 "need_more_info": {
                     "type": "boolean"
                 },
+                "config_generator": {
+                    "type": "object",
+                    "properties": {
+                        "global": {
+                            "type": "string"
+                        },
+                        "project": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "defaultValue": {
                     "oneOf": [
                         {"type": "string"},
@@ -65,6 +76,20 @@
                     },
                     "url": {
                         "type": "string"
+                    },
+                    "config_generator": {
+                        "type": "object",
+                        "properties": {
+                            "global": {
+                                "type": "string"
+                            },
+                            "project": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             }

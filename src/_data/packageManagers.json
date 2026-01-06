@@ -5,7 +5,12 @@
         {
             "id": "npm",
             "name": "npm",
-            "version": "11.7.X"
+            "version": "11.7.X",
+            "config_generator": {
+                "project": ".npmrc",
+                "global": "~/.npmrc",
+                "url": "https://npm.github.io/installation-setup-docs/customizing/the-npmrc-file.html"
+            }
         },
         {
             "id": "yarn-classic",

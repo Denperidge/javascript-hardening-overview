@@ -2,5 +2,9 @@
 layout: layout.pug
 permalink: /config-generator/index.html
 ---
+- const dataSet = dataSets[0]
+- const features = dataSet.features
 form
-- console.log(dataSets)
+    for feature in features
+        fieldset
+            legend=feature.title
