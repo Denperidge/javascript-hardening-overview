@@ -102,6 +102,12 @@
                             },
                             "deno": {
                                 "$ref": "#/$defs/featureImplementation"
+                            },
+                            "socket-npm": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "npq": {
+                                "$ref": "#/$defs/featureImplementation"
                             }
                         }
                     }

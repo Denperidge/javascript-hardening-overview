@@ -1,0 +1,42 @@
+{
+    "$schema": "./schema.json",
+    "title": "Safer installers overview",
+    "tools": [
+        {
+            "id": "socket-npm",
+            "name": "Socket Safe NPM",
+            "version": "1.1.45"
+        },
+        {
+            "id": "npq",
+            "name": "npq",
+            "version": "v3.15.4"
+        }
+    ],
+    "features": [
+        {
+            "title": "Supports the big 4 package managers (npm/yarn classic+berry/pnpm)",
+            "implementations": {
+                "socket-npm": {
+                    "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
+                },
+                "npq": {
+                    "config": true,
+                    "note": "Yes, set by env variable",
+                    "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
+                }
+            }
+        },
+        {
+            "title": "Supports Bun Install",
+            "implementations": {
+                "socket-npm": {
+                    "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
+                },
+                "npq": {
+                    "need_more_info": true
+                }
+            }
+        }
+    ]
+}
