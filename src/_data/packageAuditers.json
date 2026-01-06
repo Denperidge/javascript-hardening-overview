@@ -1,0 +1,73 @@
+{
+    "$schema": "./schema.json",
+    "title": "Package auditer overview",
+    "tools": [
+        {
+            "id": "npm-audit",
+            "name": "npm audit",
+            "version": "11.7.X"
+        },
+        {
+            "id": "yarn-audit",
+            "name": "yarn (npm) audit",
+            "version": "1.22.X/4.12.X"
+        },
+        {
+            "id": "pnpm-audit",
+            "name": "pnpm audit",
+            "version": "10.23.X"
+        },
+        {
+            "id": "lockfile-lint",
+            "name": "lockfile-lint",
+            "version": "4.14.1",
+            "url": "https://github.com/lirantal/lockfile-lint"
+        },
+        {
+            "id": "socket-scan",
+            "name": "Socket CLI scan",
+            "version": "1.1.45"
+        },
+        {
+            "id": "artemis",
+            "name": "Artemis",
+            "version": "3.6.X",
+            "url": "https://github.com/CERT-Polska/Artemis"
+        },
+        {
+            "id": "mend-renovate-cli",
+            "name": "Mend Renovate CLI",
+            "version": "42.71.X",
+            "url": "https://github.com/renovatebot/renovate"
+        }
+    ],
+    "features": [
+        {
+            "title": "Method",
+            "implementations": {
+                "npm-audit": {
+                    "note": "Dependency checker"
+                },
+                "yarn-audit": {
+                    "note": "Dependency checker"
+                },
+                "pnpm-audit": {
+                    "note": "Dependency checker"
+                },
+                "lockfile-lint": {
+                    "note": "Anti-lockfile poisoning"
+                },
+                "socket-scan": {
+                    "note": "Too much to list",
+                    "url": "https://socket.dev/alerts"
+                },
+                "artemis": {
+                    "note": "Website vulnerability scanner"
+                },
+                "mend-renovate-cli": {
+                    "note": "Cross-platform version of GitHub's dependabot"
+                }
+            }
+        }
+    ]
+}

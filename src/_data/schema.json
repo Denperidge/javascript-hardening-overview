@@ -108,6 +108,27 @@
                             },
                             "npq": {
                                 "$ref": "#/$defs/featureImplementation"
+                            },
+                            "npm-audit": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "yarn-audit": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "pnpm-audit": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "lockfile-lint": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "socket-scan": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "artemis": {
+                                "$ref": "#/$defs/featureImplementation"
+                            },
+                            "mend-renovate-cli": {
+                                "$ref": "#/$defs/featureImplementation"
                             }
                         }
                     }

@@ -17,7 +17,11 @@ html(lang="en")
                         tr
                             th Feature
                             for packageManager in tools
-                                th=`${packageManager.name} (${packageManager.version})`
+                                unless packageManager.url
+                                    th=`${packageManager.name} (${packageManager.version})`
+                                else
+                                    th
+                                        a(href=packageManager.url)=`${packageManager.name} (${packageManager.version})`
                         for feature in features
                             tr
                                 td=feature.title

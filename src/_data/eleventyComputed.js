@@ -1,7 +1,7 @@
 import markdownIt from "markdown-it";
 const md = markdownIt();
 
-const keys = ["packageManagers", "runtimes", "saferInstallers"]
+const keys = ["packageManagers", "runtimes", "saferInstallers", "packageAuditers"]
 
 function processSchemaData(data, key="packageManagers") {
     const toolIds = data[key].tools.map(tool => tool.id);
