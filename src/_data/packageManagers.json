@@ -77,7 +77,7 @@
             "implementations": {
                 "npm": {
                     "config": true,
-                    "url": "https://docs.npmjs.com/cli/v9/using-npm/config#ignore-scripts"
+                    "url": "https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts"
                 },
                 "yarn-berry": {
                     "need_more_info": true,
