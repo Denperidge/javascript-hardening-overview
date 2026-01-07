@@ -11,11 +11,11 @@ mixin radio(name, value)
 - const tools = dataSet.tools;
 
 form
-    fieldset
+    fieldset#general-settings
         legend General settings
         fieldset
             legend Scope
-            +radio("scope", "local")
+            +radio("scope", "project")
             +radio("scope", "global")
         
         fieldset
