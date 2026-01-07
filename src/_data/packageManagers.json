@@ -25,7 +25,12 @@
         {
             "id": "pnpm",
             "name": "pnpm",
-            "version": "10.23.X"
+            "version": "10.23.X",
+            "config_generator": {
+                "url": "https://pnpm.io/cli/config",
+                "project": "pnpm-workspace.yaml",
+                "global": "~/.config/pnpm/rc"
+            }
         },
         {
             "id": "bun-install",
@@ -64,12 +69,20 @@
             "implementations": {
                 "yarn-berry": {
                     "defaultValue": "3d",
-                    "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate"
+                    "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate",
+                    "config_generator": {
+                        "project": "npmMinimalAgeGate: \"{0}\"",
+                        "arg": "text"
+                    }
                 },
                 "pnpm": {
                     "config": true,
                     "url": "https://pnpm.io/settings#minimumreleaseage",
-                    "override_url": "https://pnpm.io/settings#minimumreleaseageexclude"
+                    "override_url": "https://pnpm.io/settings#minimumreleaseageexclude",
+                    "config_generator": {
+                        "project": "minimumReleaseAge: {0}  # in minutes",
+                        "arg": "number"
+                    }
                 },
                 "bun-install": {
                     "config": true,
