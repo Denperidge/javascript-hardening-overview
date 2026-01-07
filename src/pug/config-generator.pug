@@ -2,9 +2,37 @@
 layout: layout.pug
 permalink: /config-generator/index.html
 ---
+
+mixin radio(name, value)
+    input(type="radio" id=value name=name value=value)
+    label(for=value)=value
 - const dataSet = dataSets[0]
 - const features = dataSet.features
+- const tools = dataSet.tools;
+
 form
-    for feature in features
+    fieldset
+        legend General settings
+        fieldset
+            legend Scope
+            +radio("scope", "local")
+            +radio("scope", "global")
+        
+        fieldset
+            legend Tools
+            for tool in tools
+                +radio("tool", tool.id)
+    hr
+
+    section#inputs!=inputs
+        
+    - console.log(inputs)
+    //for feature, featureIndex in features
         fieldset
             legend=feature.title
+            for impl, toolId in feature.implementations
+                if impl.config_generator
+                    - const cfg = impl.config_generator
+                    input(type=cfg.arg, name=`f${featureIndex}-${toolId}`)
+
+    script(src="/static/config-generator.js")
