@@ -1,5 +1,7 @@
 import markdownIt from "markdown-it";
-const md = markdownIt();
+const md = markdownIt({
+    html: true
+});
 
 const keys = ["packageManagers", "runtimes", "saferInstallers", "packageAuditers"]
 
@@ -17,6 +19,7 @@ function processSchemaData(data, key="packageManagers") {
                 const hasNote = Object.keys(implementation).includes("note");
                 if (hasNote) {
                     implementation.note = md.renderInline(implementation.note)
+                    console.log(implementation.note)
                 }
 
                 if (implementation.warning) {
@@ -26,6 +29,8 @@ function processSchemaData(data, key="packageManagers") {
                     feature.implementations[toolId].prettyPrint = "🛠️ " + implementation.note;
                 } else if (implementation.need_more_info) {
                     if (!hasNote) { implementation.note = "Need more info"};
+                    console.log("@@@<")
+                    console.log(implementation.note)
                     feature.implementations[toolId].prettyPrint = "❔ " + implementation.note;
                 } else if (implementation.note == "N/A") {
                     feature.implementations[toolId].prettyPrint = implementation.note;
