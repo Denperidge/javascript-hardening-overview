@@ -24,14 +24,17 @@ export default {
                     if (impl.config_generator) {
                         const cfgGen = impl.config_generator;
                         const inputType = cfgGen.arg;
+                        let outputTemplate = "";
+
                         const dataShowIf = ["project", "global"].map(scope => {
                             if (cfgGen[scope]) {
+                                outputTemplate += `data-template-${scope}="${cfgGen[scope]}"`;
                                 const showIf =`-${toolId}-${scope}-`;  // surround in dashes for anti false positive (npm & pnpm)
                                 featureShowIf.add(showIf)
                                 return showIf
                             }
                         });
-                        featureInputs += `<div class="implementation" data-show-if="${dataShowIf}"><input type="${inputType}"/></div>`
+                        featureInputs += `<div class="implementation" data-show-if="${dataShowIf}"><input type="${inputType}" ${outputTemplate}/></div>`
                     }
                 }
 
