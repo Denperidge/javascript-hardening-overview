@@ -79,4 +79,4 @@ elementsOn("#general-settings input", "click", showInputsInScope);
 elementsOn("#inputs input", "input", generateOutput);
 
 
-document.addEventListener("ready", showInputsInScope);
+showInputsInScope();
