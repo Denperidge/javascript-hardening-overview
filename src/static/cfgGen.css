@@ -3,3 +3,11 @@
     width: 100%;
     min-height: 200px;
 }
+
+fieldset:disabled {
+    opacity: 0.5
+}
+
+fieldset:disabled input[name="enable-feature"] {
+    opacity: 0;
+}

@@ -22,10 +22,10 @@ function elementsOn(querySelector, event, func) {
 function showInputsInScope() {
     const showIf = getScope();
 
-    elementsApply(`.feature[data-show-if]`,
-        elem => elem.setAttribute("style", "opacity: 0.5"))
+    elementsApply(`.feature:not([data-show-if*="${showIf}"])`,
+        elem =>  elem.disabled = true)
     elementsApply(`.feature[data-show-if*="${showIf}"]`,
-        elem => elem.setAttribute("style", "opacity: 1"));
+        elem => elem.disabled = false);
 
     elementsApply(`.implementation:not([data-show-if*="${showIf}"])`,
         elem => elem.setAttribute("style", "display: none"));
@@ -51,7 +51,7 @@ function generateOutput() {
     // Iterate over features
     elementsApply(".feature", (elem) => {
         // If feature enabled
-        if (elem.querySelector(`[name="enable"]:checked`)) {
+        if (elem.querySelector(`[name="enable-feature"]:checked`)) {
             // collect relevant implementations
             const implementation = elem.querySelectorAll(`.implementation[data-show-if*="${getScope()}"`)
             if (implementation.length != 1) {
