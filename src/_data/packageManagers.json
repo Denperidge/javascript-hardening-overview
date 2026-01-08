@@ -71,8 +71,9 @@
                     "defaultValue": "3d",
                     "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate",
                     "config_generator": {
-                        "project": "npmMinimalAgeGate: \"{0}\"",
-                        "arg": "text"
+                        "project": "npmMinimalAgeGate: '{0}'",
+                        "arg": "text",
+                        "note": "in days. Example value (3 days): 3d"
                     }
                 },
                 "pnpm": {
