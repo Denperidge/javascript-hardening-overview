@@ -1,30 +1,34 @@
 
-function elementsOnClick(querySelector, func) {
+function elementsApply(querySelector, func) {
     const elements = document.querySelectorAll(querySelector);
     for (let i=0; i < elements.length; i++) {
-        elements[i].addEventListener("click", func);
+        func(elements[i]);
     }
+}
+
+function elementsOnClick(querySelector, func) {
+    elementsApply(querySelector, (elem) => {
+        elem.addEventListener("click", func);
+    });
 }
 
 function showInputsInScope() {
     const tool = document.querySelector("[name='tool']:checked").value;
     const scope = document.querySelector("[name='scope']:checked").value;
     
-    const showIf = `${tool}-${scope}`;
+    const showIf = `-${tool}-${scope}-`;
 
-    const allShowIfElements = document.querySelectorAll(`[data-show-if]`);
-    for (let i = 0; i < allShowIfElements.length; i++) {
-        allShowIfElements[i].setAttribute("style", "opacity: 0.5")
-    }
+    elementsApply(`.feature[data-show-if]`,
+        elem => elem.setAttribute("style", "opacity: 0.5"))
+    elementsApply(`.feature[data-show-if*="${showIf}"]`,
+        elem => elem.setAttribute("style", "opacity: 1"));
 
-    const showIfElements = document.querySelectorAll(`[data-show-if*="${showIf}"]`);;
-    console.log(showIfElements)
-    for (let i = 0;  i < showIfElements.length; i++) {
-        showIfElements[i].setAttribute("style", "opacity: 1")
-
-    }
-
+    elementsApply(`.implementation:not([data-show-if*="${showIf}"])`,
+        elem => elem.setAttribute("style", "display: none"));
+    elementsApply(`.implementation[data-show-if*="${showIf}"]`,
+        elem => elem.setAttribute("style", "display: initial"));
 }
 
 elementsOnClick("#general-settings input", showInputsInScope);
 
+showInputsInScope();

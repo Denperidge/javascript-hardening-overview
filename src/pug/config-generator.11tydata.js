@@ -26,18 +26,18 @@ export default {
                         const inputType = cfgGen.arg;
                         const dataShowIf = ["project", "global"].map(scope => {
                             if (cfgGen[scope]) {
-                                const showIf =`${toolId}-${scope}`;
+                                const showIf =`-${toolId}-${scope}-`;  // surround in dashes for anti false positive (npm & pnpm)
                                 featureShowIf.add(showIf)
                                 return showIf
                             }
                         });
-                        featureInputs += `<input data-show-if="${dataShowIf}" type="${inputType}"/>`
+                        featureInputs += `<div class="implementation" data-show-if="${dataShowIf}"><input type="${inputType}"/></div>`
                     }
                 }
 
                 if (featureInputs !== "") {
                     const showIf = Array.from(featureShowIf).join(",");
-                    allInputs += `<fieldset data-show-if="${showIf}"><legend>${feature.title}</legend>${featureInputs}</fieldset>`
+                    allInputs += `<fieldset class="feature" data-show-if="${showIf}"><legend>${feature.title}</legend>${featureInputs}</fieldset>`
                 }
             }
 
