@@ -6,9 +6,9 @@ function elementsApply(querySelector, func) {
     }
 }
 
-function elementsOnClick(querySelector, func) {
+function elementsOn(querySelector, event, func) {
     elementsApply(querySelector, (elem) => {
-        elem.addEventListener("click", func);
+        elem.addEventListener(event, func);
     });
 }
 
@@ -29,6 +29,13 @@ function showInputsInScope() {
         elem => elem.setAttribute("style", "display: initial"));
 }
 
-elementsOnClick("#general-settings input", showInputsInScope);
+function generateOutput() {
+    
+}
+
+
+elementsOn("#general-settings input", "click", showInputsInScope);
+elementsOn("#inputs input", "input", generateOutput);
+
 
 showInputsInScope();
