@@ -11,3 +11,7 @@ fieldset:disabled {
 fieldset:disabled input[name="enable-feature"] {
     opacity: 0;
 }
+
+.docs-link {
+    float: right;
+}

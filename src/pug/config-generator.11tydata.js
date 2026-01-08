@@ -27,7 +27,10 @@ export default {
                         const inputType = cfgGen.arg;
                         const inputId = `feature-${i}-input-${toolId}`
                         const note = cfgGen.note ? `<label for="${inputId}">${cfgGen.note}</label>` : "";
-                        console.log(cfgGen.note, note)
+                        let url = cfgGen.url || impl.url;
+                        if (url) {
+                            url = `<a class="docs-link" href="${url}">docs</a>`
+                        };
                         let outputTemplate = "";
 
                         const dataShowIf = ["project", "global"].map(scope => {
@@ -42,7 +45,7 @@ export default {
                         featureInputs += 
                             `<div class="implementation" data-show-if="${dataShowIf}">` +
                                 `<input id="${inputId}" type="${inputType}" ${outputTemplate}/>` +
-                                note +
+                                note + url +
                             "</div>";
                     }
                 }

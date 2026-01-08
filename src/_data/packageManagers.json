@@ -113,7 +113,8 @@
                         "global": "strictDepBuilds={0}",
                         "project": "strictDepBuilds: {0}",
                         "arg": "checkbox",
-                        "note": "pnpm ignores install scripts by default. This checkbox enables strict mode, which makes pnpm exit when finding unforeseen scripts"
+                        "note": "pnpm ignores install scripts by default. This checkbox enables strict mode, which makes pnpm exit when finding unforeseen scripts",
+                        "url": "https://pnpm.io/settings#strictdepbuilds"
                     }
                 },
                 "bun-install": {
@@ -128,7 +129,13 @@
             "implementations": {
                 "pnpm": {
                     "config": true,
-                    "url": "https://pnpm.io/settings#blockexoticsubdeps"
+                    "url": "https://pnpm.io/settings#blockexoticsubdeps",
+                    "config_generator": {
+                        "global": "blockExoticSubdeps={0}",
+                        "project": "blockExoticSubdeps: {0}",
+                        "arg": "checkbox",
+                        "note": ""
+                    }
                 }
             }
         },

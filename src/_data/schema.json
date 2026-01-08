@@ -43,6 +43,9 @@
                         "project": {
                             "type": "string"
                         },
+                        "url": {
+                            "type": "string"
+                        },
                         "note": {
                             "type": "string"
                         },
