@@ -33,8 +33,10 @@ function showInputsInScope() {
         elem => elem.setAttribute("style", "display: initial"));
     
 
-    const filename = document.querySelector("input[name='tool']:checked").dataset[getScope(false)];
+    const scope = getScope(false);
+    let filename = document.querySelector("input[name='tool']:checked").dataset[scope];
     if (filename) {
+        if (scope == "project") { filename = "/path/to/repo/" + filename}
         document.getElementById("filename").innerText = filename;
     } else {
         document.getElementById("filename").innerText = "";
