@@ -20,7 +20,10 @@
         {
             "id": "yarn-berry",
             "name": "Yarn Berry",
-            "version": "4.12.X"
+            "version": "4.12.X",
+            "config_generator": {
+                "project": ".yarnrc.yml"
+            }
         }, 
         {
             "id": "pnpm",
