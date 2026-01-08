@@ -44,8 +44,9 @@ function generateOutput() {
         if (elem.querySelector(`[name="enable"]:checked`)) {
             // collect relevant implementations
             const implementation = elem.querySelectorAll(`.implementation[data-show-if*="${getScope()}"`)
-            if (implementation.length > 1) {
-                console.error("Too many implimentations found")
+            if (implementation.length != 1) {
+                console.error(`Wrong amount of implementations found for scope ${getScope()} (${implementation.length} instead of 1)`);
+                console.error(implementation)
             } else {
                 const impl = implementation[0];
                 const scope = getScope(false);
