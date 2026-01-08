@@ -66,7 +66,7 @@ function generateOutput() {
 
                 const templateId = "template" + scope[0].toUpperCase() + scope.substring(1);
                 const template = input.dataset[templateId];
-                const value = input.value
+                const value = input.type != "checkbox" ? input.value : input.checked 
                 out += template.replace("{0}", value) + "\n";
             }
         }
