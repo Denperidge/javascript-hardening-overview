@@ -10,7 +10,7 @@ mixin radio(name, value, projectFile=null, globalFile=null)
 - const features = dataSet.features
 - const tools = dataSet.tools;
 
-link(rel="stylesheet", href="/static/config-generator.css")
+link(rel="stylesheet", href="/static/cfgGen.css")
 form
     fieldset#general-settings
         legend General settings
@@ -25,8 +25,7 @@ form
                 unless tool.config_generator
                     +radio("tool", tool.id)
                 else
-                    - console.log(tool.config_generator.project)
-                    +radio("tool", tool.id, tool.config_generator.project)
+                    +radio("tool", tool.id, tool.config_generator.project, tool.config_generator.global)
     hr
 
     section#inputs!=inputs
@@ -46,4 +45,4 @@ form
                     - const cfg = impl.config_generator
                     input(type=cfg.arg, name=`f${featureIndex}-${toolId}`)
 
-    script(src="/static/config-generator.js")
+    script(src="/static/cfgGen.js")
