@@ -18,12 +18,16 @@ export default {
                 let featureInputs = "";
                 const featureShowIf = new Set();
 
+                // Every implementation
                 for (let j=0; j < toolIds.length; j++) {
                     const toolId = toolIds[j];
                     const impl = implementations[toolId];
                     if (impl.config_generator) {
                         const cfgGen = impl.config_generator;
                         const inputType = cfgGen.arg;
+                        const inputId = `feature-${i}-input-${toolId}`
+                        const note = cfgGen.note ? `<label for="${inputId}">${cfgGen.note}</label>` : "";
+                        console.log(cfgGen.note, note)
                         let outputTemplate = "";
 
                         const dataShowIf = ["project", "global"].map(scope => {
@@ -34,7 +38,12 @@ export default {
                                 return showIf
                             }
                         });
-                        featureInputs += `<div class="implementation" data-show-if="${dataShowIf}"><input type="${inputType}" ${outputTemplate}/></div>`
+
+                        featureInputs += 
+                            `<div class="implementation" data-show-if="${dataShowIf}">` +
+                                `<input id="${inputId}" type="${inputType}" ${outputTemplate}/>` +
+                                note +
+                            "</div>";
                     }
                 }
 
@@ -43,7 +52,9 @@ export default {
                     const enableId = `enable-feature-${i}`
                     allInputs += 
                         `<fieldset class="feature" data-show-if="${showIf}">` +
-                            `<legend><input id="${enableId}" type="checkbox" name="enable"/><label for="${enableId}">${feature.title}</label></legend>` +
+                            `<legend><input id="${enableId}" type="checkbox" name="enable" />` +
+                                `<label for="${enableId}">${feature.title}</label>` +
+                            "</legend>" +
                             featureInputs +
                         "</fieldset>";
                 }

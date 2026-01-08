@@ -81,7 +81,8 @@
                     "override_url": "https://pnpm.io/settings#minimumreleaseageexclude",
                     "config_generator": {
                         "project": "minimumReleaseAge: {0}  # in minutes",
-                        "arg": "number"
+                        "arg": "number",
+                        "note": "in minutes. Example value (3 days): 4320"
                     }
                 },
                 "bun-install": {
