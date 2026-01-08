@@ -4,7 +4,7 @@ permalink: /config-generator/index.html
 ---
 
 mixin radio(name, value, projectFile=null, globalFile=null)
-    input(type="radio" id=value name=name value=value required data-project= projectFile data-global=globalFile)
+    input(type="radio" id=value name=name value=value data-project= projectFile data-global=globalFile)
     label(for=value)=value
 - const dataSet = dataSets[0]
 - const features = dataSet.features

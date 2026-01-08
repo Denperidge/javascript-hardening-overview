@@ -52,11 +52,12 @@ function generateOutput() {
     elementsApply(".feature", (elem) => {
         // If feature enabled
         if (elem.querySelector(`[name="enable-feature"]:checked`)) {
+            
             // collect relevant implementations
             const implementation = elem.querySelectorAll(`.implementation[data-show-if*="${getScope()}"`)
             if (implementation.length != 1) {
-                console.error(`Wrong amount of implementations found for scope ${getScope()} (${implementation.length} instead of 1)`);
-                console.error(implementation)
+                console.warn(`Wrong amount of implementations found for scope ${getScope()} (${implementation.length} instead of 1)`);
+                console.warn(implementation)
             } else {
                 const impl = implementation[0];
                 const scope = getScope(false);
@@ -70,7 +71,7 @@ function generateOutput() {
             }
         }
     });
-    document.getElementById("out").textContent = out;
+    document.getElementById("out").value = out;
 }
 
 
