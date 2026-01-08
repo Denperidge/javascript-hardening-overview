@@ -43,7 +43,7 @@ export default {
                     const enableId = `enable-feature-${i}`
                     allInputs += 
                         `<fieldset class="feature" data-show-if="${showIf}">` +
-                            `<legend><input id="${enableId}" type="checkbox" value="enable"/><label for="${enableId}">${feature.title}</label></legend>` +
+                            `<legend><input id="${enableId}" type="checkbox" name="enable"/><label for="${enableId}">${feature.title}</label></legend>` +
                             featureInputs +
                         "</fieldset>";
                 }

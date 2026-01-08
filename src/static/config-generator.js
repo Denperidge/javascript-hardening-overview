@@ -1,3 +1,10 @@
+function getScope(full=true) {
+    const scope = document.querySelector("[name='scope']:checked").value;
+    if (!full) return scope;
+
+    const tool = document.querySelector("[name='tool']:checked").value;
+    return `-${tool}-${scope}-`;
+}
 
 function elementsApply(querySelector, func) {
     const elements = document.querySelectorAll(querySelector);
@@ -13,10 +20,7 @@ function elementsOn(querySelector, event, func) {
 }
 
 function showInputsInScope() {
-    const tool = document.querySelector("[name='tool']:checked").value;
-    const scope = document.querySelector("[name='scope']:checked").value;
-    
-    const showIf = `-${tool}-${scope}-`;
+    const showIf = getScope();
 
     elementsApply(`.feature[data-show-if]`,
         elem => elem.setAttribute("style", "opacity: 0.5"))
@@ -27,10 +31,35 @@ function showInputsInScope() {
         elem => elem.setAttribute("style", "display: none"));
     elementsApply(`.implementation[data-show-if*="${showIf}"]`,
         elem => elem.setAttribute("style", "display: initial"));
+    
+    generateOutput();
 }
 
 function generateOutput() {
-    
+    let out = "";
+
+    // Iterate over features
+    elementsApply(".feature", (elem) => {
+        // If feature enabled
+        if (elem.querySelector(`[name="enable"]:checked`)) {
+            // collect relevant implementations
+            const implementation = elem.querySelectorAll(`.implementation[data-show-if*="${getScope()}"`)
+            if (implementation.length > 1) {
+                console.error("Too many implimentations found")
+            } else {
+                const impl = implementation[0];
+                const scope = getScope(false);
+
+                const input = impl.querySelector(`input[data-template-${scope}]`);
+
+                const templateId = "template" + scope[0].toUpperCase() + scope.substring(1);
+                const template = input.dataset[templateId];
+                const value = input.value
+                out += template.replace("{0}", value) + "\n";
+            }
+        }
+    });
+    document.getElementById("out").textContent = out;
 }
 
 
