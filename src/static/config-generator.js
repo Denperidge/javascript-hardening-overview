@@ -32,6 +32,14 @@ function showInputsInScope() {
     elementsApply(`.implementation[data-show-if*="${showIf}"]`,
         elem => elem.setAttribute("style", "display: initial"));
     
+
+    const filename = document.querySelector("input[name='tool']:checked").dataset[getScope(false)];
+    if (filename) {
+        document.getElementById("filename").innerText = filename;
+    } else {
+        document.getElementById("filename").innerText = "";
+    }
+
     generateOutput();
 }
 
@@ -68,4 +76,4 @@ elementsOn("#general-settings input", "click", showInputsInScope);
 elementsOn("#inputs input", "input", generateOutput);
 
 
-showInputsInScope();
+document.addEventListener("ready", showInputsInScope);

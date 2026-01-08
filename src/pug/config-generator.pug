@@ -3,13 +3,14 @@ layout: layout.pug
 permalink: /config-generator/index.html
 ---
 
-mixin radio(name, value)
-    input(type="radio" id=value name=name value=value)
+mixin radio(name, value, projectFile=null, globalFile=null)
+    input(type="radio" id=value name=name value=value data-project= projectFile data-global=globalFile)
     label(for=value)=value
 - const dataSet = dataSets[0]
 - const features = dataSet.features
 - const tools = dataSet.tools;
 
+link(rel="stylesheet", href="/static/config-generator.css")
 form
     fieldset#general-settings
         legend General settings
@@ -20,8 +21,12 @@ form
         
         fieldset
             legend Tools
-            for tool in tools
-                +radio("tool", tool.id)
+            for tool in tools   
+                unless tool.config_generator
+                    +radio("tool", tool.id)
+                else
+                    - console.log(tool.config_generator.project)
+                    +radio("tool", tool.id, tool.config_generator.project)
     hr
 
     section#inputs!=inputs
@@ -30,6 +35,7 @@ form
 
     section#output
         h2 Output
+        span#filename
         textarea#out
         
     //for feature, featureIndex in features
