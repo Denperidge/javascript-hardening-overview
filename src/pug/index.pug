@@ -24,7 +24,9 @@ for dataSet in dataSets
                     td=feature.title
                     for toolId in toolIds
                         - const impl = feature.implementations[toolId]
-                        unless impl.url
+                        if !impl
+                            td ❌ Not implemented
+                        else if !impl.url
                             td!=impl.prettyPrint
                         else
                             td

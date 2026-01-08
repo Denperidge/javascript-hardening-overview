@@ -13,11 +13,7 @@ function processSchemaData(data, key="packageManagers") {
             const toolId = toolIds[i];
             const implementation = feature.implementations[toolId];
 
-            if (implementation == undefined) {
-                feature.implementations[toolId] = {
-                    prettyPrint: "❌ Not implemented"
-                }
-            } else {
+            if (implementation != undefined) {
                 const hasNote = Object.keys(implementation).includes("note");
                 if (hasNote) {
                     implementation.note = md.renderInline(implementation.note)
