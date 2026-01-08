@@ -134,7 +134,7 @@
                         "global": "blockExoticSubdeps={0}",
                         "project": "blockExoticSubdeps: {0}",
                         "arg": "checkbox",
-                        "note": ""
+                        "note": "When set to true, only direct dependencies may use exotic sources"
                     }
                 }
             }

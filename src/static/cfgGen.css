@@ -4,6 +4,21 @@
     min-height: 200px;
 }
 
+legend {
+    font-weight: bold;
+}
+
+fieldset {
+    padding: 20px;
+    margin: 20px 0px;
+}
+#general-settings {
+    padding: 10px;
+}
+#general-settings fieldset {
+    margin: 0;
+}
+
 fieldset:disabled {
     opacity: 0.5
 }
