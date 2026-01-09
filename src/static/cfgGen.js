@@ -55,9 +55,11 @@ function generateOutput() {
             
             // collect relevant implementations
             const implementation = elem.querySelectorAll(`.implementation[data-show-if*="${getScope()}"`)
-            if (implementation.length != 1) {
+            if (implementation.length > 1) {
                 console.warn(`Wrong amount of implementations found for scope ${getScope()} (${implementation.length} instead of 1)`);
                 console.warn(implementation)
+            } else if (implementation.length == 0) {
+                console.log("No implementation found")
             } else {
                 const impl = implementation[0];
                 const scope = getScope(false);
