@@ -1,6 +1,6 @@
 
 #out {
-    width: 100%;
+    width: 92vw;
     min-height: 200px;
 }
 
@@ -9,7 +9,7 @@ legend {
 }
 
 fieldset {
-    padding: 20px;
+    padding-bottom: 15px;
     margin: 20px 0px;
 }
 #general-settings {
@@ -29,4 +29,9 @@ fieldset:disabled input[name="enable-feature"] {
 
 .docs-link {
     float: right;
+}
+
+input[type="number"], input[type="text"] {
+    width: 50%;
+    margin-right: 10px;
 }
