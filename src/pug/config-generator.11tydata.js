@@ -42,9 +42,15 @@ export default {
                             }
                         });
 
+                        const input = inputType != "select" ?
+                            `<input id="${inputId}" type="${inputType}" ${outputTemplate}/>`
+                            : `<select id="${inputId}" ${outputTemplate}>` +
+                                cfgGen.options.map(opt => `<option>${opt}</option>`) +
+                            "</select>";
+
                         featureInputs += 
-                            `<div class="implementation" data-show-if="${dataShowIf}">` +
-                                `<input id="${inputId}" type="${inputType}" ${outputTemplate}/>` +
+                            `<div class="implementation" data-show-if="${dataShowIf}">`  +
+                                input
                                 note + url +
                             "</div>";
                     }

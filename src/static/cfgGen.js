@@ -62,7 +62,7 @@ function generateOutput() {
                 const impl = implementation[0];
                 const scope = getScope(false);
 
-                const input = impl.querySelector(`input[data-template-${scope}]`);
+                const input = impl.querySelector(`input[data-template-${scope}], select[data-template-${scope}]`);
 
                 const templateId = "template" + scope[0].toUpperCase() + scope.substring(1);
                 const template = input.dataset[templateId];
@@ -75,7 +75,7 @@ function generateOutput() {
 }
 
 
-elementsOn("#general-settings input", "click", showInputsInScope);
+elementsOn("#general-settings input, #general-settings select", "click", showInputsInScope);
 elementsOn("#inputs input", "input", generateOutput);
 
 

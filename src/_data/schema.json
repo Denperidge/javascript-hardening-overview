@@ -54,8 +54,15 @@
                             "enum": [
                                 "text",
                                 "number",
-                                "checkbox"
+                                "checkbox",
+                                "select"
                             ]
+                        },
+                        "options": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         }
                     }
                 },

@@ -145,7 +145,14 @@
                 "pnpm": {
                     "config": true,
                     "url": "https://pnpm.io/settings#trustpolicy",
-                    "override_url": "https://pnpm.io/settings#trustpolicyexclude"
+                    "override_url": "https://pnpm.io/settings#trustpolicyexclude",
+                    "config_generator": {
+                        "global": "trustPolicy={0}",
+                        "project": "trustPolicy: {0}",
+                        "arg": "select",
+                        "options": ["no-downgrade", "off"]
+                    }
+                
                 }
             }
         },
