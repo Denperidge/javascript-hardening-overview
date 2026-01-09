@@ -4,6 +4,7 @@ export default async function(eleventyConfig) {
     eleventyConfig.addPlugin(pugPlugin);
 
     eleventyConfig.addPassthroughCopy("src/static/")
+    eleventyConfig.addPassthroughCopy("node_modules/wingcss/dist/wing.min.css")
     return {
         dir: {
             input: "src",

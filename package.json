@@ -19,7 +19,8 @@
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-pug": "^1.0.0",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "wingcss": "1.0.0-beta"
   },
   "devDependencies": {
     "npq": "^3.16.1"
