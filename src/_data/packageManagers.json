@@ -150,9 +150,9 @@
                         "global": "trustPolicy={0}",
                         "project": "trustPolicy: {0}",
                         "arg": "select",
-                        "options": ["no-downgrade", "off"]
+                        "options": ["no-downgrade", "off"],
+                        "note": "When set to no-downgrade, package installation will fail if a package's trust level has decreased"
                     }
-                
                 }
             }
         },

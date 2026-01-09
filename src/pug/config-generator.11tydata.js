@@ -50,8 +50,7 @@ export default {
 
                         featureInputs += 
                             `<div class="implementation" data-show-if="${dataShowIf}">`  +
-                                input
-                                note + url +
+                                input + note + url +
                             "</div>";
                     }
                 }
