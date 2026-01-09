@@ -1,6 +1,10 @@
 ---
 layout: layout.pug
+title: Sources
 ---
+---
+Looking for sources not listed in the reference or config generator? That should be here!
+
 ## Sources
 - [https://pnpm.io/blog/2025/12/05/newsroom-npm-supply-chain-security](https://pnpm.io/blog/2025/12/05/newsroom-npm-supply-chain-security)
 

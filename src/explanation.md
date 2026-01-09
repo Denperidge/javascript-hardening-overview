@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+title: Explanation
 ---
 ## Explanation
 ### ☕️📝 Intro
