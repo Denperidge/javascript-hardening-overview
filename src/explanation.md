@@ -30,11 +30,12 @@ The symbols used below are used to signify:
 ❌: No such option/functionality
 ❔: Could not find enough info
 
-### Yarn versions: classic & berry only
+### Selected subjects
+#### Yarn versions: classic & berry only
 This is for a simple-ish reason: yarn classic is the corepack default, yarn berry is the most up to date.
 
 
-### Exemptions: safedep & snyk
+#### Exemptions: safedep & snyk
 While it is not unheard of that JavaScript security experts love using some AI aspects for scanning (Socket, for example, does this too). However, [safedep](https://safedep.io) & [snyk.io](https://snyk.) position themselves as AI-first, which is something I have no interest in.
 
 With that being said: if somebody wants to open a PR info about them, I will merge it.
