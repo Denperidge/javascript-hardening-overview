@@ -32,7 +32,9 @@
             "config_generator": {
                 "url": "https://pnpm.io/cli/config",
                 "project": "pnpm-workspace.yaml",
-                "global": "~/.config/pnpm/rc"
+                "global": "~/.config/pnpm/rc",
+                "projectComment": "#",
+                "globalComment": ";"
             }
         },
         {

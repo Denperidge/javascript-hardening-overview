@@ -21,6 +21,8 @@ function elementsOn(querySelector, event, func) {
 
 function showInputsInScope() {
     const showIf = getScope();
+    const toolElem = document.querySelector("[name='tool']:checked");
+    const scope = getScope(false);
 
     elementsApply(`.feature:not([data-show-if*="${showIf}"])`,
         elem =>  elem.disabled = true)
@@ -33,8 +35,7 @@ function showInputsInScope() {
         elem => elem.setAttribute("style", "display: initial"));
     
 
-    const scope = getScope(false);
-    let filename = document.querySelector("input[name='tool']:checked").dataset[scope];
+    let filename = toolElem.dataset[scope];
     if (filename) {
         if (scope == "project") { filename = "/path/to/repo/" + filename}
         document.getElementById("filename").innerText = filename;
@@ -42,11 +43,21 @@ function showInputsInScope() {
         document.getElementById("filename").innerText = "";
     }
 
+    document.getElementById("prettify-comments")
+        .disabled = (toolElem.dataset[scope + "Comment"] == undefined);
+
     generateOutput();
 }
 
 function generateOutput() {
     let out = "";
+    const scope = getScope(false);
+    const tool = document.querySelector("[name='tool']:checked");
+    
+    const addComments = document.querySelector("#pretty-comments").checked;
+    const addDocsUrl = document.querySelector("#pretty-docs").checked;
+    const newlines = document.querySelector("#pretty-newlines").value || 0;
+    const commentPrefix = tool.dataset[scope + "Comment"];
 
     // Iterate over features
     elementsApply(".feature", (elem) => {
@@ -62,7 +73,18 @@ function generateOutput() {
                 console.log("No implementation found")
             } else {
                 const impl = implementation[0];
-                const scope = getScope(false);
+
+                // Prettify (1)
+                if (addComments || addDocsUrl) {
+                    if (addComments) {
+                        out += `${commentPrefix} ${elem.querySelector("legend").innerText}`;
+                    }
+                    if (addComments & addDocsUrl) { out += "\n"; }
+                    if (addDocsUrl) {
+                        out += `${commentPrefix} ${elem.querySelector(".docs-link").href}`
+                    }
+                    out += "\n";
+                }
 
                 const input = impl.querySelector(`input[data-template-${scope}], select[data-template-${scope}]`);
 
@@ -72,8 +94,15 @@ function generateOutput() {
                     out += template.split("@@@")[input.selectedIndex];
                 } else {
                     const value = input.type != "checkbox" ? input.value : input.checked 
-                    out += template.replace("{0}", value) + "\n";
+                    out += template.replace("{0}", value);
                 }
+                out += "\n";
+
+                // Prettify (2)
+                for (let i=0; i < newlines; i++) {
+                    out += "\n"
+                }
+
             }
         }
     });

@@ -18,6 +18,13 @@ fieldset {
 #general-settings fieldset {
     margin: 0;
 }
+label[for="pretty-newlines"] {
+    margin-right: 5px;
+}
+#pretty-newlines {
+    display: inline-block;
+    width: 100px;
+}
 
 fieldset:disabled {
     opacity: 0.5

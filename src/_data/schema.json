@@ -118,6 +118,12 @@
                             "project": {
                                 "type": "string"
                             },
+                            "globalComment": {
+                                "type": "string"
+                            },
+                            "projectComment": {
+                                "type": "string"
+                            },
                             "url": {
                                 "type": "string"
                             }

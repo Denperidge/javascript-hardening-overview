@@ -4,11 +4,12 @@ title: Config Generator
 permalink: /config-generator/index.html
 ---
 
-mixin radio(name, value, projectFile=null, globalFile=null)
+mixin radio(name, value, projectFile=null, globalFile=null, projectComment=null, globalComment=null)
     input(type="radio" 
         id=value value=value
         name=name checked=(value == "pnpm" || value == "project")
-        data-project=projectFile data-global=globalFile)
+        data-project=projectFile data-global=globalFile
+        data-project-comment=projectComment data-global-comment=globalComment)
     label(for=value)=value
 - const dataSet = dataSets[0]
 - const features = dataSet.features
@@ -29,7 +30,17 @@ form
                 unless tool.config_generator
                     +radio("tool", tool.id)
                 else
-                    +radio("tool", tool.id, tool.config_generator.project, tool.config_generator.global)
+                    +radio("tool", tool.id, tool.config_generator.project, tool.config_generator.global, tool.config_generator.projectComment, tool.config_generator.globalComment)
+        fieldset#prettify
+            legend Prettify
+            label(for="pretty-newlines") Amount of newlines between config options:
+            input(type="number" id="pretty-newlines" placeholder="0" min="0")
+            fieldset#prettify-comments
+                legend Comments
+                input(type="checkbox", id="pretty-comments")
+                label(for="pretty-comments") Add titles
+                input(type="checkbox", id="pretty-docs")
+                label(for="pretty-docs") Add docs url
     hr
 
     section#inputs!=inputs
