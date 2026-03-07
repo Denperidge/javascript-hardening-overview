@@ -35,7 +35,12 @@ export default {
 
                         const dataShowIf = ["project", "global"].map(scope => {
                             if (cfgGen[scope]) {
-                                outputTemplate += `data-template-${scope}="${cfgGen[scope]}"`;
+                                let scopeTemplate = cfgGen[scope];
+                                if (scopeTemplate instanceof Array) {
+                                    scopeTemplate = scopeTemplate.join("@@@")
+                                }
+
+                                outputTemplate += `data-template-${scope}="${scopeTemplate}"`;
                                 const showIf =`-${toolId}-${scope}-`;  // surround in dashes for anti false positive (npm & pnpm)
                                 featureShowIf.add(showIf)
                                 return showIf

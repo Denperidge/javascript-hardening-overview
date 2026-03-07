@@ -37,10 +37,22 @@
                     "type": "object",
                     "properties": {
                         "global": {
-                            "type": "string"
+                            "oneOf": [
+                                {"type": "string"},
+                                {
+                                    "type": "array",
+                                    "items": {"type": "string"}
+                                }
+                            ]
                         },
                         "project": {
-                            "type": "string"
+                            "oneOf": [
+                                {"type": "string"},
+                                {
+                                    "type": "array",
+                                    "items": {"type": "string"}
+                                }
+                            ]
                         },
                         "url": {
                             "type": "string"

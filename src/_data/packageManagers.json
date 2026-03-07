@@ -170,7 +170,23 @@
                 "pnpm": {
                     "warning": "configurable",
                     "url": "https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm#a-strict-traditional-modules-directory",
-                    "override": true
+                    "override": true,
+                    "config_generator": {
+                        "arg": "select",
+                        "note": "By default, semi-strict node_modules are used in pnpm",
+                        "options": [
+                            "Disable hoisting",
+                            "Strict plug'n'play"
+                        ],
+                        "global": [
+                            "hoist=false",
+                            "node-linker=pnp\nsymlink=false"
+                        ],
+                        "project": [
+                            "hoist: false",
+                            "node-linker: pnp\nsymlink: false"
+                        ]
+                    }
                 },
                 "bun-install": {
                     "warning": "configurable",

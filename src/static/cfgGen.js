@@ -68,8 +68,12 @@ function generateOutput() {
 
                 const templateId = "template" + scope[0].toUpperCase() + scope.substring(1);
                 const template = input.dataset[templateId];
-                const value = input.type != "checkbox" ? input.value : input.checked 
-                out += template.replace("{0}", value) + "\n";
+                if (input.tagName == "SELECT" && template.includes("@@@")) {
+                    out += template.split("@@@")[input.selectedIndex];
+                } else {
+                    const value = input.type != "checkbox" ? input.value : input.checked 
+                    out += template.replace("{0}", value) + "\n";
+                }
             }
         }
     });
@@ -78,7 +82,7 @@ function generateOutput() {
 
 
 elementsOn("#general-settings input, #general-settings select", "click", showInputsInScope);
-elementsOn("#inputs input", "input", generateOutput);
+elementsOn("#inputs input, #inputs select", "input", generateOutput);
 
 
 showInputsInScope();
