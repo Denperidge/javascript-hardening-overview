@@ -23,15 +23,19 @@ function processSchemaData(data, key="packageManagers") {
                 }
 
                 if (implementation.warning) {
-                    feature.implementations[toolId].prettyPrint = "⚠️ " + implementation.note;
-                } else if (implementation.config) {
-                    if (!hasNote) { implementation.note = "If configured"};
-                    feature.implementations[toolId].prettyPrint = "🛠️ " + implementation.note;
-                } else if (implementation.need_more_info) {
-                    if (!hasNote) { implementation.note = "Need more info"};
-                    console.log("@@@<")
-                    console.log(implementation.note)
-                    feature.implementations[toolId].prettyPrint = "❔ " + implementation.note;
+                    switch (implementation.warning) {
+                        case "limited":
+                            feature.implementations[toolId].prettyPrint = "⚠️ " + implementation.note;
+                            break;
+                        case "configurable":
+                            if (!hasNote) { implementation.note = "If configured"};
+                            feature.implementations[toolId].prettyPrint = "🛠️ " + implementation.note;
+                            break;
+                        case "need_more_info":
+                            if (!hasNote) { implementation.note = "Need more info"};
+                            feature.implementations[toolId].prettyPrint = "❔ " + implementation.note;
+                            break;
+                    }
                 } else if (implementation.note == "N/A") {
                     feature.implementations[toolId].prettyPrint = implementation.note;
                 } else {

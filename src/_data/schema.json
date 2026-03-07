@@ -13,11 +13,13 @@
                     "type": "string"
                 },
                 "warning": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "config": {
-                    "type": "boolean"
+                    "type": "string",
+                    "enum": [
+                        "limited",
+                        "configurable",
+                        "need_more_info"
+                    ], 
+                    "default": "ok"
                 },
                 "override": {
                     "type": "boolean"
@@ -30,9 +32,6 @@
                 },
                 "url": {
                     "type": "string"
-                },
-                "need_more_info": {
-                    "type": "boolean"
                 },
                 "config_generator": {
                     "type": "object",

@@ -73,19 +73,19 @@
             "title": "Supports the big 4 (npm/yarn classic+berry/pnpm)",
             "implementations": {
                 "npm-audit": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "npm only"
                 },
                 "yarn-audit": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "yarn classic (yarn audit) or yarn berry (yarn npm audit) only"
                 },
                 "pnpm-audit": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "pnpm only"
                 },
                 "lockfile-lint": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "npm & yarn only. Pnpm is safe by default"
                 },
                 "socket-scan": {
@@ -103,7 +103,7 @@
             "title": "Supports Bun Install",
             "implementations": {
                 "lockfile-lint": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "Bun is safe by default"
                 },
                 "artemis": {

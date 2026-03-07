@@ -23,7 +23,7 @@
             "title": "Limit resource access",
             "implementations": {
                 "node": {
-                    "warning": true,
+                    "warning": "limited",
                     "note": "If configured, limited to some built-in node api's",
                     "url": "https://nodejs.org/api/permissions.html"
                 },
@@ -37,7 +37,7 @@
             "title": "Freezing intrinsics/built-ins",
             "implementations": {
                 "node": {
-                    "config": true,
+                    "warning": "configurable",
                     "url": "https://nodejs.org/en/learn/getting-started/security-best-practices"
                 }
             }
@@ -46,7 +46,7 @@
             "title": "Runtime-level package auditor",
             "implementations": {
                 "bun-runtime": {
-                    "config": true,
+                    "warning": "configurable",
                     "url": "https://bun.com/docs/runtime/bunfig#install-security-scanner"
                 }
             }

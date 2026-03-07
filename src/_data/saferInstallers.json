@@ -21,7 +21,7 @@
                     "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
                 },
                 "npq": {
-                    "config": true,
+                    "warning": "configurable",
                     "note": "Yes, set by env variable",
                     "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
                 }
@@ -34,7 +34,7 @@
                     "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"
                 },
                 "npq": {
-                    "need_more_info": true
+                    "warning": "need_more_info"
                 }
             }
         }
