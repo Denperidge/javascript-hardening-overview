@@ -77,7 +77,16 @@ function generateOutput() {
                 // Prettify (1)
                 if (addComments || addDocsUrl) {
                     if (addComments) {
-                        out += `${commentPrefix} ${elem.querySelector("legend").innerText}`;
+                        let title;
+
+                        const select = impl.querySelector("select");
+                        const capitalisedScope = scope[0].toUpperCase() + scope.substring(1);
+                        if (select && select.dataset["template" + capitalisedScope] && select.dataset["template" + capitalisedScope].includes("@@@")) {
+                            title = select.value;
+                        } else {
+                            title = elem.querySelector("legend").innerText;
+                        }
+                        out += `${commentPrefix} ${title}`;
                     }
                     if (addComments & addDocsUrl) { out += "\n"; }
                     if (addDocsUrl) {
