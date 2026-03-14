@@ -90,7 +90,7 @@ function generateOutput() {
                     }
                     if (addComments & addDocsUrl) { out += "\n"; }
                     if (addDocsUrl) {
-                        out += `${commentPrefix} ${elem.querySelector(".docs-link").href}`
+                        out += `${commentPrefix} ${impl.querySelector(".docs-link").href}`
                     }
                     out += "\n";
                 }
