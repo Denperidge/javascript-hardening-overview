@@ -22,7 +22,10 @@
             "name": "Yarn Berry",
             "version": "4.12.X",
             "config_generator": {
-                "project": ".yarnrc.yml"
+                "project": ".yarnrc.yml",
+                "global": "~/.yarnrc.yml",
+                "projectComment": "#",
+                "globalComment": "#"
             }
         }, 
         {
@@ -77,6 +80,7 @@
                     "url": "https://yarnpkg.com/configuration/yarnrc#npmMinimalAgeGate",
                     "config_generator": {
                         "project": "npmMinimalAgeGate: '{0}'",
+                        "global": "npmMinimalAgeGate: '{0}'",
                         "arg": "text",
                         "note": "in days. Example value (3 days): 3d"
                     }
@@ -107,7 +111,14 @@
                 },
                 "yarn-berry": {
                     "warning": "need_more_info",
-                    "note": "[Documentation](https://yarnpkg.com/configuration/yarnrc#enableScripts) [unclear](https://github.com/yarnpkg/yarn/issues/7338)"
+                    "note": "[Documentation](https://yarnpkg.com/configuration/yarnrc#enableScripts) [unclear](https://github.com/yarnpkg/yarn/issues/7338)",
+                    "config_generator": {
+                        "global": "enableScripts: false",
+                        "project": "enableScripts: false",
+                        "arg": "checkbox",
+                        "note": "Set to true to disable postinstall scripts",
+                        "url": "https://yarnpkg.com/configuration/yarnrc#enableScripts"
+                    }
                 },
                 "pnpm": {
                     "note": "[Default](https://pnpm.io/settings#dangerouslyallowallbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) and [strict mode (exit instead of warn)](https://pnpm.io/settings#strictdepbuilds)",
@@ -217,7 +228,14 @@
             "implementations": {
                 "yarn-berry": {
                     "warning": "configurable",
-                    "note": "[Default for public PR](https://yarnpkg.com/configuration/yarnrc#enableHardenedMode), can be set to [true to do so everywhere](https://github.com/yarnpkg/berry/discussions/7026#discussioncomment-15375799)"
+                    "note": "[Default for public PR](https://yarnpkg.com/configuration/yarnrc#enableHardenedMode), can be set to [true to do so everywhere](https://github.com/yarnpkg/berry/discussions/7026#discussioncomment-15375799)",
+                    "config_generator": {
+                        "note": "Set to true to enable hardened mode: Yarn will query the remote registries to validate that the lockfile content matches the remote information",
+                        "arg": "checkbox",
+                        "project": "enableHardenedMode: true",
+                        "global": "enableHardenedMode: true",
+                        "url": "https://yarnpkg.com/configuration/yarnrc#enableHardenedMode"
+                    }
                 },
                 "pnpm": {
                     "note": "Not needed"
