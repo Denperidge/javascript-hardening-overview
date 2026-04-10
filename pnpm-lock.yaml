@@ -22,8 +22,8 @@ importers:
         version: 1.0.0-beta
     devDependencies:
       deno:
-        specifier: runtime:^2.6.0
-        version: runtime:2.6.3
+        specifier: runtime:^2.7.12
+        version: runtime:2.7.12
       npq:
         specifier: ^3.16.1
         version: 3.16.1
@@ -311,43 +311,52 @@ packages:
       supports-color:
         optional: true
 
-  deno@runtime:2.6.3:
+  deno@runtime:2.7.12:
     resolution:
       type: variations
       variants:
         - resolution:
             archive: zip
             bin: deno
-            integrity: sha256-f9wBACqQpqxYuJNuXXqHL6eIXbcdUbrH93a3t5DIIIU=
+            integrity: sha256-RpSRas+TlUYRM5YY8Z3+wB2BKNmhFAKDjmW+duVyvF4=
             type: binary
-            url: https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-apple-darwin.zip
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-aarch64-apple-darwin.zip
           targets:
             - cpu: arm64
               os: darwin
         - resolution:
             archive: zip
-            bin: deno
-            integrity: sha256-kslJboxx5rGKvx9yjWIju2gnSeSUbyRYmn74ly/sQj4=
+            bin: deno.exe
+            integrity: sha256-AbJ6/97Ix0fTMEFQhebFMrijQs8Wk3xsXg3y+5+l8Mw=
             type: binary
-            url: https://github.com/denoland/deno/releases/download/v2.6.3/deno-aarch64-unknown-linux-gnu.zip
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-aarch64-pc-windows-msvc.zip
+          targets:
+            - cpu: arm64
+              os: win32
+        - resolution:
+            archive: zip
+            bin: deno
+            integrity: sha256-QRbBu1+iu6NIoficU5LV7Nu1Bd1xZnlocGYFVupsbFM=
+            type: binary
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-aarch64-unknown-linux-gnu.zip
           targets:
             - cpu: arm64
               os: linux
         - resolution:
             archive: zip
             bin: deno
-            integrity: sha256-OULlr00lWItQb0kVUngjnJ+gnnaDqRLKCRo0ah/EBzM=
+            integrity: sha256-swPXefILnOATVeZUMM2b+SGzs0+gS94B4czqBfGA/dw=
             type: binary
-            url: https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-apple-darwin.zip
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-x86_64-apple-darwin.zip
           targets:
             - cpu: x64
               os: darwin
         - resolution:
             archive: zip
             bin: deno.exe
-            integrity: sha256-oBGgxvHqEg7GCmWWnp1UmviUuZnPHTX+XugeaUInzOI=
+            integrity: sha256-8Nt0Z5b/IVVETktrQrJP8ROYgmJuLNw5Q3Q6eYD0vCo=
             type: binary
-            url: https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-pc-windows-msvc.zip
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-x86_64-pc-windows-msvc.zip
           targets:
             - cpu: x64
               os: win32
@@ -356,13 +365,13 @@ packages:
         - resolution:
             archive: zip
             bin: deno
-            integrity: sha256-s8JNxvOYJgeJa9eV/WvL3FPz0R6NgZCyoH/RiB6xFIo=
+            integrity: sha256-RkbsMrQpb9+WOmKj3z1X40KjxwN2l25WkMNNQuI6MIA=
             type: binary
-            url: https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-unknown-linux-gnu.zip
+            url: https://github.com/denoland/deno/releases/download/v2.7.12/deno-x86_64-unknown-linux-gnu.zip
           targets:
             - cpu: x64
               os: linux
-    version: 2.6.3
+    version: 2.7.12
     hasBin: true
 
   depd@2.0.0:
@@ -1489,7 +1498,7 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  deno@runtime:2.6.3: {}
+  deno@runtime:2.7.12: {}
 
   depd@2.0.0: {}
 

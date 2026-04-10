@@ -2,7 +2,7 @@
   
 (pkgs.buildFHSEnv {
   name = "js-hardening-overview";
-  multiPkgs = pkgs: (with pkgs; [
+  targetPkgs = pkgs: (with pkgs; [
     corepack
   ]);
 }).env
