@@ -1,8 +1,12 @@
 { pkgs ? import <nixpkgs> {} }:
   
-(pkgs.buildFHSEnv {
-  name = "js-hardening-overview";
-  targetPkgs = pkgs: (with pkgs; [
+pkgs.mkShell {
+  buildInputs = with pkgs; [
     corepack
-  ]);
-}).env
+    steam-run-free
+  ];
+  shellHook = ''
+    alias pnpm="steam-run pnpm"
+    alias deno="steam-run pnpm deno"
+  '';
+}

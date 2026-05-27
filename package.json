@@ -4,15 +4,15 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "deno -P --allow-net=0.0.0.0 npm:@11ty/eleventy@3 --serve",
-    "build": "deno -P npm:@11ty/eleventy@3"
+    "start": "deno -P --allow-net=0.0.0.0 npm:@11ty/eleventy --serve",
+    "build": "deno -P npm:@11ty/eleventy"
   },
   "keywords": [],
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
+  "packageManager": "pnpm@11.4.0",
   "devEngines": {
     "runtime": {
       "name": "deno",
-      "version": "^2.7.12",
+      "version": "^2.7.14",
       "onFail": "download"
     }
   },
