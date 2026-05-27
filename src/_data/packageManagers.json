@@ -121,7 +121,12 @@
                     }
                 },
                 "pnpm": {
-                    "note": "[Default](https://pnpm.io/settings#strictdepbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) & [dangerous mode override](https://pnpm.io/settings#dangerouslyallowallbuilds)"
+                    "note": "[Default](https://pnpm.io/settings#strictdepbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) & [dangerous mode override](https://pnpm.io/settings#dangerouslyallowallbuilds)",
+                    "override_url": "https://pnpm.io/settings#allowbuilds",
+                    "config_generator": {
+                        "url": "https://pnpm.io/settings#strictdepbuilds",
+                        "note": "Not needed: strictDepBuilds is default & expected pnpm behaviour, allowBuilds overrides are prompted dynamically by pnpm"
+                    }
                 },
                 "bun-install": {
                     "warning": "limited",
@@ -240,10 +245,18 @@
                     }
                 },
                 "pnpm": {
-                    "note": "Not needed"
+                    "note": "Not needed: lockfile does not contain resolved urls",
+                    "url": "https://raw.githubusercontent.com/Denperidge/javascript-hardening-overview/0778fe18c7a20ae458a11fd2fe979e8ce676a700/pnpm-lock.yaml",
+                    "config_generator": {
+                        "note": "Not needed: lockfile does not contain resolved urls"
+                    }
                 },
                 "bun-install": {
-                    "note": "Not needed"
+                    "note": "Not needed: lockfile does not contain resolved urls",
+                    "url": "https://raw.githubusercontent.com/oven-sh/bun/3eba9cb62fb236dca9969b58d772b02ac1c1a668/bun.lock",
+                    "config_generator": {
+                        "note": "Not needed: lockfile does not contain resolved urls"
+                    }
                 }
             }
         }

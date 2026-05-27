@@ -33,6 +33,10 @@ export default {
                         };
                         let outputTemplate = "";
 
+                        const cfgGenKeys = Object.keys(cfgGen);
+                        // if ["note"] || ["note", "url"]
+                        const noteOnly = cfgGenKeys.includes("note") && (cfgGenKeys.length == 1 || (cfgGenKeys.length == 2 && cfgGenKeys.includes("url")));
+
                         const dataShowIf = ["project", "global"].map(scope => {
                             if (cfgGen[scope]) {
                                 let scopeTemplate = cfgGen[scope];
@@ -44,14 +48,19 @@ export default {
                                 const showIf =`-${toolId}-${scope}-`;  // surround in dashes for anti false positive (npm & pnpm)
                                 featureShowIf.add(showIf)
                                 return showIf
+                            } else if (noteOnly) {
+                                return `-${toolId}-${scope}-`;  // surround in dashes for anti false positive (npm & pnpm)
                             }
                         });
 
-                        const input = inputType != "select" ?
+                        let input = "";
+                        if (!noteOnly) {
+                            input = inputType != "select" ?
                             `<input id="${inputId}" type="${inputType}" ${outputTemplate}/>`
                             : `<select id="${inputId}" ${outputTemplate}>` +
                                 cfgGen.options.map(opt => `<option>${opt}</option>`) +
                             "</select>";
+                        }
 
                         featureInputs += 
                             `<div class="implementation" data-show-if="${dataShowIf}">`  +
