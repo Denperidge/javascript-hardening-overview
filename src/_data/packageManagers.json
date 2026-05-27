@@ -45,7 +45,15 @@
         {
             "id": "bun-install",
             "name": "Bun Install",
-            "version": "1.3.X"
+            "version": "1.3.X",
+            "config_generator": {
+                "url": "https://bun.com/docs/runtime/bunfig",
+                "global": "~/.bunfig.toml or $XDG_CONFIG_HOME/.bunfig.toml",
+                "project": "bunfig.toml",
+                "globalComment": "#",
+                "projectComment": "#",
+                "prefix": "[install]\n"
+            }
         }
     ],
     "features": [
@@ -100,7 +108,14 @@
                 },
                 "bun-install": {
                     "warning": "configurable",
-                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age"
+                    "url": "https://bun.com/docs/pm/cli/install#minimum-release-age",
+                    "override_url": "https://bun.com/docs/runtime/bunfig#install-minimumreleaseageexcludes",
+                    "config_generator": {
+                        "arg": "number",
+                        "note": "in seconds. Example value (3 days): 259200",
+                        "global": "minimumReleaseAge = {0}  # in seconds",
+                        "project": "minimumReleaseAge = {0}  # in seconds"
+                    }
                 }
             }
         },
@@ -137,9 +152,11 @@
                     }
                 },
                 "bun-install": {
-                    "warning": "limited",
-                    "note": "Default, only blocks dependencies, has allowlist override",
-                    "url": "https://bun.com/docs/pm/cli/install#lifecycle-scripts"
+                    "url": "https://bun.com/docs/pm/cli/install#lifecycle-scripts",
+                    "override_url": "https://bun.com/docs/guides/install/trusted#add-a-trusted-dependency",
+                    "config_generator": {
+                        "note": "Not needed: bun blocks install scripts by default"
+                    }
                 }
             }
         },
@@ -218,7 +235,23 @@
                 },
                 "bun-install": {
                     "warning": "configurable",
-                    "url": "https://bun.com/docs/pm/cli/install#default-strategy"
+                    "url": "https://bun.com/docs/pm/cli/install#default-strategy",
+                    "config_generator": {
+                        "url": "https://bun.com/docs/runtime/bunfig#install-linker",
+                        "arg": "select",
+                        "options": [
+                            "Isolate dependencies",
+                            "Hoist dependencies to a shared node_modules dir"
+                        ],
+                        "project": [
+                            "linker = &quot;isolated&quot;",
+                            "linker = &quot;hoisted&quot;"
+                        ],
+                        "global": [
+                            "linker = &quot;isolated&quot;",
+                            "linker = &quot;hoisted&quot;"
+                        ]
+                    }
                 }
             }
         },
