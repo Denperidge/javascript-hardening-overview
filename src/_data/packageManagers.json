@@ -31,13 +31,13 @@
         {
             "id": "pnpm",
             "name": "pnpm",
-            "version": "10.23.X",
+            "version": "11.4.X",
             "config_generator": {
                 "url": "https://pnpm.io/cli/config",
                 "project": "pnpm-workspace.yaml",
-                "global": "~/.config/pnpm/rc",
+                "global": "~/.config/pnpm/config.yaml",
                 "projectComment": "#",
-                "globalComment": ";"
+                "globalComment": "#"
             }
         },
         {
@@ -86,12 +86,12 @@
                     }
                 },
                 "pnpm": {
-                    "warning": "configurable",
+                    "defaultValue": "1 day",
                     "url": "https://pnpm.io/settings#minimumreleaseage",
                     "override_url": "https://pnpm.io/settings#minimumreleaseageexclude",
                     "config_generator": {
                         "project": "minimumReleaseAge: {0}  # in minutes",
-                        "global": "minimumReleaseAge={0}",
+                        "global": "minimumReleaseAge: {0}  # in minutes",
                         "arg": "number",
                         "note": "in minutes. Example value (3 days): 4320"
                     }
@@ -121,14 +121,7 @@
                     }
                 },
                 "pnpm": {
-                    "note": "[Default](https://pnpm.io/settings#dangerouslyallowallbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) and [strict mode (exit instead of warn)](https://pnpm.io/settings#strictdepbuilds)",
-                    "config_generator": {
-                        "global": "strictDepBuilds={0}",
-                        "project": "strictDepBuilds: {0}",
-                        "arg": "checkbox",
-                        "note": "pnpm ignores install scripts by default. This checkbox enables strict mode, which makes pnpm exit when finding unforeseen scripts",
-                        "url": "https://pnpm.io/settings#strictdepbuilds"
-                    }
+                    "note": "[Default](https://pnpm.io/settings#strictdepbuilds), with [allowlist override](https://pnpm.io/settings#allowbuilds) & [dangerous mode override](https://pnpm.io/settings#dangerouslyallowallbuilds)"
                 },
                 "bun-install": {
                     "warning": "limited",
@@ -141,13 +134,22 @@
             "title": "Block git repo/tarball sources for indirect dependencies",
             "implementations": {
                 "pnpm": {
-                    "warning": "configurable",
                     "url": "https://pnpm.io/settings#blockexoticsubdeps",
                     "config_generator": {
-                        "global": "blockExoticSubdeps={0}",
-                        "project": "blockExoticSubdeps: {0}",
-                        "arg": "checkbox",
-                        "note": "When set to true, only direct dependencies may use exotic sources"
+                        "arg": "select",
+                        "note": "Direct dependencies are dependencies listed in your package.json. Defaults to true (allowed only for direct dependencies)",
+                        "global": [
+                            "blockExoticSubdeps: true",
+                            "blockExoticSubdeps: false"
+                        ],
+                        "project": [
+                            "blockExoticSubdeps: true",
+                            "blockExoticSubdeps: false"
+                        ],
+                        "options": [
+                            "Exotic sources (git repos, tarballs...) allowed only for direct dependencies",
+                            "Exotic sources (git repos, tarballs...) allowed for direct & indirect subdependencies"
+                        ]
                     }
                 }
             }
@@ -160,7 +162,7 @@
                     "url": "https://pnpm.io/settings#trustpolicy",
                     "override_url": "https://pnpm.io/settings#trustpolicyexclude",
                     "config_generator": {
-                        "global": "trustPolicy={0}",
+                        "global": "trustPolicy: {0}",
                         "project": "trustPolicy: {0}",
                         "arg": "select",
                         "options": ["no-downgrade", "off"],
@@ -192,12 +194,12 @@
                             "Strict plug'n'play"
                         ],
                         "global": [
-                            "hoist=false",
-                            "node-linker=pnp\nsymlink=false"
+                            "hoist: false",
+                            "nodeLinker: pnp\nsymlink: false"
                         ],
                         "project": [
                             "hoist: false",
-                            "node-linker: pnp\nsymlink: false"
+                            "nodeLinker: pnp\nsymlink: false"
                         ]
                     }
                 },
