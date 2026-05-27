@@ -59,6 +59,8 @@ function generateOutput() {
     const newlines = document.querySelector("#pretty-newlines").value || 0;
     const commentPrefix = tool.dataset[scope + "Comment"];
 
+    out += tool.dataset["prefix"] || "";
+
     // Iterate over features
     elementsApply(".feature", (elem) => {
         // If feature enabled

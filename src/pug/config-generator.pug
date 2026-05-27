@@ -4,12 +4,13 @@ title: Config Generator
 permalink: /config-generator/index.html
 ---
 
-mixin radio(name, value, projectFile=null, globalFile=null, projectComment=null, globalComment=null)
+mixin radio(name, value, projectFile=null, globalFile=null, projectComment=null, globalComment=null, prefix=null)
     input(type="radio" 
         id=value value=value
         name=name checked=(value == "pnpm" || value == "project")
         data-project=projectFile data-global=globalFile
-        data-project-comment=projectComment data-global-comment=globalComment)
+        data-project-comment=projectComment data-global-comment=globalComment
+        data-prefix=prefix)
     label(for=value)=value
 - const dataSet = dataSets[0]
 - const features = dataSet.features
@@ -30,7 +31,7 @@ form
                 unless tool.config_generator
                     +radio("tool", tool.id)
                 else
-                    +radio("tool", tool.id, tool.config_generator.project, tool.config_generator.global, tool.config_generator.projectComment, tool.config_generator.globalComment)
+                    +radio("tool", tool.id, tool.config_generator.project, tool.config_generator.global, tool.config_generator.projectComment, tool.config_generator.globalComment, tool.config_generator.prefix)
         fieldset#prettify
             legend Prettify
             label(for="pretty-newlines") Amount of newlines between config options:
