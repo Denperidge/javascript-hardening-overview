@@ -9,6 +9,8 @@
             "config_generator": {
                 "project": ".npmrc",
                 "global": "~/.npmrc",
+                "projectComment": ";",
+                "globalComment": ";",
                 "url": "https://npm.github.io/installation-setup-docs/customizing/the-npmrc-file.html"
             }
         },
@@ -107,7 +109,13 @@
             "implementations": {
                 "npm": {
                     "warning": "configurable",
-                    "url": "https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts"
+                    "url": "https://docs.npmjs.com/cli/v11/using-npm/config#ignore-scripts",
+                    "config_generator": {
+                        "arg": "checkbox",
+                        "note": "If set to true, ignore scripts & disable pre/post scripts",
+                        "global": "ignore-scripts = {0}",
+                        "project": "ignore-scripts = {0}"
+                    }
                 },
                 "yarn-berry": {
                     "warning": "need_more_info",
