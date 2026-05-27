@@ -15,7 +15,7 @@
     ],
     "features": [
         {
-            "title": "Supports the big 4 package managers (npm/yarn classic+berry/pnpm)",
+            "title": "Supports the big 4 📦 package managers (npm/yarn classic+berry/pnpm)",
             "implementations": {
                 "socket-npm": {
                     "url": "https://github.com/SocketDev/socket-cli/blob/v1.1.52/src/commands/optimize/ls-by-agent.mts#L7"

@@ -4,7 +4,7 @@ title: Explanation
 ---
 ## Explanation
 ### ☕️📝 Intro
-There's a bunch of security stuff going wrong with JavaScript/npm. There's a bunch of 📦 package managers and even full 🐇 runtimes and they all do different stuff. Lets see which one has the most security potential, and how to configure tools to lessen security risks.
+There's a bunch of security stuff going wrong with JavaScript/npm. There's a bunch of 📦 package managers and even full 🐇 runtimes and they all do different stuff. This is a repository of info on which of those tools have the most security/hardening potential, and how to configure them to lessen security risks.
 
 ### 📖 Goals, methodology & symbols
 The goals of this project are simple-ish:
@@ -20,7 +20,7 @@ I am not an expert in the programs described, so any contributions/corrections a
 - Occasionally checking inside source codes
 
 
-The symbols used below are used to signify:
+The symbols used in this project signify the following:
 🐇: Runtime
 📦: Package manager
 
